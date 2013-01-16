@@ -11,7 +11,5 @@ def errorpage404(status, message, traceback, version):
 
 def errorpagedefault(status, message, traceback, version):
     return str(render_page('error.html', {'status' : status, 
-                                      'message' : message,
-                                      'traceback' : traceback,
-                                      'version' : version}))
+        'message' : message, 'traceback' : traceback, 'version' : version}))
     

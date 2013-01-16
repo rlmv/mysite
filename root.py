@@ -68,7 +68,4 @@ class Root(object):
         </form>"""
 
 
-    @cherrypy.expose
-    def default(self, *args):
-        return "404 page not found..."
 

@@ -13,23 +13,22 @@ from root import Root
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 config = {
-    'global' :  {
-            
-        
-    },
-    '/' :   {
+    '/' : 
+        {
             # 'error_page.404': errors.errorpage404,
             'tools.staticdir.root' : current_dir,
             'error_page.default': errors.errorpagedefault,
-    }, 
-    '/templates': {
+        }, 
+    '/templates' : 
+        {
             'tools.staticdir.on' : True ,
             'tools.staticdir.dir' : 'templates'
-    },
-    'constants' :   {
+        },
+    'constants' : 
+        {
             'template_dir' : current_dir + '/templates', 
             'pkg_name' : 'mysite'
-    }
+        }
 }
 
 
