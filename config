@@ -1,0 +1,18 @@
+[global]
+
+# [/]
+# # maybe this can be passed in as a dictionary update? more elegant?
+# tools.staticdir.root : /Users/robertmarchman/Documents/CS/mysite/ 
+
+
+# [/templates] # url... 
+# tools.staticdir.on : True
+# tools.staticdir.dir: 'templates'  # disc location....
+
+
+# the constants namespace holds system-wide
+# constants. Use get_constant('key') to retrieve 
+# the values.
+[constants]
+template_dir : 'templates'  # location of the templates directory
+pkg_name : 'mysite'         # name of the package
