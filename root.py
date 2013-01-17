@@ -5,7 +5,7 @@ import logging
 import cherrypy
 
 from blog import Blog
-from core import render_page
+from util import render_page
 from db import db_build, db_delete
 
 
@@ -38,13 +38,18 @@ class Root(object):
         db_build()
         return "BUILDING DB..."
 
-
     @dev_expose
     def db_delete(self):
         """ Empties datastore. """
         db_delete()
         return "DELETING DB..."
 
+    @dev_expose
+    def db_rebuild(self):
+        """ Tears down and rebuilds db. """
+        db_delete()
+        db_build()
+        return "REBUILDING DB..."
     
     @cherrypy.expose
     def doLogin(self, username=None, password=None):

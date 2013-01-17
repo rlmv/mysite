@@ -16,17 +16,17 @@ config = {
     '/' : 
         {
             # 'error_page.404': errors.errorpage404,
-            'tools.staticdir.root' : current_dir,
+           'tools.staticdir.root' : current_dir,
             'error_page.default': errors.errorpagedefault,
         }, 
-    '/templates' : 
+    '/stylesheets' : 
         {
             'tools.staticdir.on' : True ,
-            'tools.staticdir.dir' : 'templates'
+            'tools.staticdir.dir' : 'views/stylesheets'
         },
     'constants' : 
         {
-            'template_dir' : current_dir + '/templates', 
+            'template_dir' : current_dir + '/views/templates', 
             'pkg_name' : 'mysite'
         }
 }

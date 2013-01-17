@@ -9,6 +9,9 @@ handlers:
 - url: /.*
   script: main.app
 
+# - url: /css #serve stylesheets
+#   static_dir: views/css
+
 libraries:
 - name: jinja2
   version: latest

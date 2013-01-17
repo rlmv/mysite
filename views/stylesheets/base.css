@@ -12,15 +12,24 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  font-family: Futura;
+  font-family: Futura, Arial;
   text-rendering: optimizeLegibility;
 
 }
 
+h1 { font-size: 2em, }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+h5 { font-size: .83em; }
+h6 { font-size: .75em; }
+
 h1, h2, h3 {
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD; 
 }
 
+code {
+  
+}
 
 /*General formatting for the page. */
 #page {
@@ -51,6 +60,8 @@ h1, h2, h3 {
   padding-bottom: 2em;
 }
 
+/* ----- navigation bar -------*/
+
 #nav {
   list-style: none;
   padding: 0;
@@ -71,10 +82,47 @@ h1, h2, h3 {
   padding-right: 1em;
 }
 
+/*---- style for blog index ----*/
+
+#posts {
+  list-style: none;
+  padding: 0;
+}
+
+#posts li a {
+
+  text-decoration: none;
+  color: #000000;
+}
+
+
+
+/* -----formatting for blog post -----*/
+
+.blogtitle {
+  margin-top: 1.5em;
+  background-color: #DDDDDF;
+  padding-left: 1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  font-size: 2em;
+  font-family: Futura, Arial;
+  text-rendering: optimizeLegibility;
+}
+
+.blogcontent {
+  width: 33em;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+/* -------------------------*/
+
 #content {
   /*font-family: Baskerville;*/
   text-align: justify;
-  width: 33em;
+  width: 37em;
   margin-left: auto;
   margin-right: auto;
 }

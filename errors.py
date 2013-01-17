@@ -1,7 +1,7 @@
 
 import logging
 
-from core import render_page
+from util import render_page
 
 
 def errorpage404(status, message, traceback, version):

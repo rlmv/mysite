@@ -3,10 +3,9 @@ import os
 import logging
 
 import cherrypy
-import markdown
 
-from core import render_page 
-from db import getblogpost
+from util import render_page 
+from db import getblogpost, getrecentposts
 
 
 
@@ -14,22 +13,19 @@ class Blog(object):
 
     @cherrypy.expose
     def index(self):
-        return "blog index"
-
-
-
-    # @cherrypy.expose
-    # def testpost(self):
-    #     blogtext = getblogpost('testpost')
-    #     return render_page('blog.html', {'blogtext' : blogtext})
-
+        posts = getrecentposts()
+        return render_page('blogindex.html', {'posts' : posts})
+        
+        
     @cherrypy.expose
     def default(self, *args):
         
         if len(args) == 1: # title?
-            blogtext = getblogpost(args[0])
-            if blogtext:
-                return render_page('blog.html', {'blogtext' : blogtext})
+            post = getblogpost(args[0])
+            if post:
+                title, text = post
+                return render_page('blog.html', {'title' : title,
+                                                'blogtext' : text})
 
         #raise cherrypy.HTTPError(404)
         # equiv:

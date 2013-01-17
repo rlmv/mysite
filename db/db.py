@@ -5,32 +5,44 @@
 import os
 import logging
 
-import markdown
+import markdown2
 from google.appengine.ext import db
 
 from models import BlogPost
-from core import get_files_of_type
+from util import get_files_of_type
 
 
 def addblogpost(filename, title):
     pass    
 
 def getblogpost(title):
-
-    """ TODO: deal with case issues...."""
+    """ Get a blog post titled 'title' from the data store.
+        Must be an exact match. """
     q = BlogPost.all()
     q.filter("title =", title.lower())
     try:
-        return q.get().html # NEED: error checking for when .get returns None.
+        post = q.get()
+        return post.title, post.html 
     except AttributeError:
         return None
+    
+def getrecentposts(num=5):
+    """ Get html for the [num] most recent posts.
+        Return a list of (title, html) tuples. """
+        
+    q = BlogPost.all()
+    q.order('post_date')
+    posts = [(post.title, post.html) for post in q.run(limit=num)]
+    return posts
 
 
 def db_build():
     """ Convert all markdown file in ./data/md into
         html and put them in the datastore.
     """
-    md = markdown.Markdown(output_format='html')
+    
+    # turn on code fencing...and pyshell
+    md = markdown2.Markdown(extras=['fenced-code-blocks', 'pyshell'])
 
     # grab all markdown files and convert them to html
     for filename in get_files_of_type('md', './data/md'):

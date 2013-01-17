@@ -1,5 +1,4 @@
-Hello
------
+
 
 This is a test of markdown. How does it format? 
 
