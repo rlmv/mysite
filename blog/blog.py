@@ -4,7 +4,7 @@ import logging
 
 import cherrypy
 
-from util import render_page 
+from util import renderpage 
 from db import getblogpost, getrecentposts
 
 
@@ -14,7 +14,7 @@ class Blog(object):
     @cherrypy.expose
     def index(self):
         posts = getrecentposts()
-        return render_page('blogindex.html', {'posts' : posts})
+        return renderpage('blogindex.html', {'posts' : posts})
         
         
     @cherrypy.expose
@@ -24,7 +24,7 @@ class Blog(object):
             post = getblogpost(args[0])
             if post:
                 title, text = post
-                return render_page('blog.html', {'title' : title,
+                return renderpage('blog.html', {'title' : title,
                                                 'blogtext' : text})
 
         #raise cherrypy.HTTPError(404)

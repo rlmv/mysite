@@ -9,7 +9,7 @@ from constants import get_constant
 
 
 # REFACTOR THIS>>>>>
-def render_page(name, context):
+def renderpage(name, context={}):
     """ Given a template and a context, 
         render and return the template
         using the environment attached to 

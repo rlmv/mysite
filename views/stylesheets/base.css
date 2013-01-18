@@ -1,138 +1,193 @@
-/** {
-    border: 1px solid red !important;
+
+
+/* ------ resets -------*/
+/*----------from html5doctor------------*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    vertical-align:baseline;
+    background:transparent;
+    color: #000000;
 }
-*/
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/*-------------scrollbar-------------*/
+/*--------to be replaced with js...sometime---*/
+/* -------not cross platform-----------*/
+
+/* For the "inset" look only */
+html {
+    overflow: auto;
+}
 body {
-  font-size:  100%;
-  font-weight: 500;
-  line-height: 1.2em;
-  height: 100%;
-  font-family: Baskerville, Georgia, "Times New Roman", serif;
+    position: absolute;
+    top: 50px;
+    left: -30px;
+    bottom: 50px;
+    right: 15px;
+    padding: 30px; 
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(2,2,0,0.4); 
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.4); 
+}
+
+
+/*----------------------------*/
+
+body {
+  font-family:  "Gentium Basic", Junction, Fanwood;
+  font-size: 12pt;
+  line-height: 1.6em;
+}
+
+p {
+  padding-bottom: 1.5em;
+}
+
+p + p {
+   text-indent:1.6em;
+} 
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  font-family: Futura, Arial;
-  text-rendering: optimizeLegibility;
-
+  font-family: Oswald;
 }
-
+  
 h1 { font-size: 2em, }
 h2 { font-size: 1.5em; }
 h3 { font-size: 1.17em; }
+h4 { font-size: 1em;  }
 h5 { font-size: .83em; }
 h6 { font-size: .75em; }
 
-h1, h2, h3 {
-  border-bottom: 1px solid #DDDDDD; 
-}
-
 code {
-  
+  font-size: .8em;
 }
 
-/*General formatting for the page. */
-#page {
-}
 
-#header {
-  font-family: Futura, Arial;
-  width: 6.69em;
-  margin-right: auto;
+/*----------header--page-title-------------*/
+
+#navigation {
+  width: 35em;
   margin-left: auto;
-  margin-bottom: 0;
-  padding-top: 5%;
-  padding-bottom: 0;
-  text-align: left;
-  font-size: 500%
-}
-
-#header a {
-  color: #000000;
-  text-decoration: none;
-}
-
-#menu {
-  width: 33em;
   margin-right: auto;
-  margin-left: auto;
-  padding-top: 2.7em;
-  padding-bottom: 2em;
+  padding-bottom: 6em;
+  padding-top: 2em;
 }
 
-/* ----- navigation bar -------*/
-
-#nav {
+#navigation ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+}
+
+#navigation ul li {
   float: left;
 }
 
-#nav li {
-  float: left;
+#navigation ul li ul {
+ margin-top: -.43em;
+ 
 }
 
-#nav li a {
-  font-family: Futura, Arial;
-  font-size: 120%;
-  padding-top: .5em;
-  text-decoration: none;
-  color: #000000;
-  padding-right: 1em;
+.navlink {
+  font-family: Oswald;
+  font-size: 1.3em;
+  padding-right: 1.1em;
+  text-transform: uppercase;
+   
 }
 
-/*---- style for blog index ----*/
+#pagetitle {
+    font-family: "Open Sans";
+    font-size: 6em;
+    margin-left: -.045em;
+    padding-right: .26em;
 
-#posts {
-  list-style: none;
-  padding: 0;
 }
 
-#posts li a {
+/*-------blog formatting---------------*/
 
-  text-decoration: none;
-  color: #000000;
+.blogarticle {
+  margin-bottom: 1em;
 }
-
-
-
-/* -----formatting for blog post -----*/
 
 .blogtitle {
-  margin-top: 1.5em;
-  background-color: #DDDDDF;
-  padding-left: 1em;
-  padding-top: .5em;
-  padding-bottom: .5em;
+  font-family: Oswald;
+  width: 17.5em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: .7em;
+  padding-top: 1.35em;
   font-size: 2em;
-  font-family: Futura, Arial;
-  text-rendering: optimizeLegibility;
+  border-top: 2px solid #DDDDDD;
+  text-transform: uppercase;
 }
 
 .blogcontent {
-  width: 33em;
-  margin-left: auto;
-  margin-right: auto;
-
+   margin-left: auto;
+   margin-right: auto;
+   width: 35em;
 }
 
-/* -------------------------*/
-
-#content {
-  /*font-family: Baskerville;*/
-  text-align: justify;
-  width: 37em;
-  margin-left: auto;
-  margin-right: auto;
+/*------------content-----------*/
+/*--------for general filling------*/
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 35em;
 }
 
-#footer {
-  font-family: Futura, Arial;
-  font-weight: 100;
-  font-size: 85 %;
-  text-align: center;
-  padding-top: 2em;
-  margin-botton: 3em;
-  text-transform: lowercase;
+
+/*------for error pages-------*/
+#error {
+  padding-top: 1em;
 }
+
+#error div {
+  padding-top: 1em;
+}
+
+

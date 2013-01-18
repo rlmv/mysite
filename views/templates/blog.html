@@ -3,6 +3,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="blogtitle">{{ title }}</div>
-    <div class="blogcontent">{{ blogtext }}</div>
+    <article class="blogarticle">
+        <header class="blogtitle">
+            <a href="/blog/{{ title }}">{{ title }}</a>
+        </header>
+        <div class="blogcontent">{{ blogtext }}</div>
+    </article>
 {% endblock %}

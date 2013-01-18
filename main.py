@@ -3,7 +3,6 @@ import os
 
 import cherrypy
 
-
 import errors
 from root import Root
 
@@ -23,6 +22,11 @@ config = {
         {
             'tools.staticdir.on' : True ,
             'tools.staticdir.dir' : 'views/stylesheets'
+        },
+    '/fonts' :
+        {
+            'tools.staticdir.on' : True,
+            'tools.staticdir.dir' : 'views/fonts',
         },
     'constants' : 
         {

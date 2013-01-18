@@ -5,12 +5,10 @@ An OAuth keyset from HathiTrust is required to use the Data API.
 
 
 Packages:
----------
 * requests (available in PyPI)
 * requests-oauthlib (a Requests plugin; the version in PyPI currently has some errors, so get it straight from the source repo [here](https://github.com/requests/requests-oauthlib).)
 
 To Do:
-------
 * Write test cases.
 * Implement exceptions to identify HathiTrust response codes.
 
@@ -24,7 +22,7 @@ if True:
 Did that work? all you have to do is surround it with back-ticks. Now this next bit
 is trying to do syntax highlighting:
 
-```§
+```
 if True:
     print "hi!"
 ```

@@ -1,50 +1,52 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         {% block head %}
-            <title>{% block title %}{% endblock %}</title>
+            <title></title><!--get something in here-->
             <link href="/stylesheets/base.css" rel="stylesheet" type="text/css">
-            <link href="/stylesheets/codehilite.css" rel="stylesheet" type="text/css">
+            <link href='http://fonts.googleapis.com/css?family=Gentium+Basic' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
         {% endblock %}
     </head>
 
     <body> 
     {% block body %}
 
-        <div id="page">
-        {% block page %}
+            <header id="pageheader">
+                {% block pageheader %}
+                    
+                <!--<div id="pagetitle">
+                    <a href="/">rlmv</a>
+                </div>-->
+                
+                <nav id="navigation">
+                    <ul>
+                        <li><a id="pagetitle" href="/">rlmv</a></li>
+                        <li><ul>
+                            <li><a class="navlink" href="/blog">blog</a></li>
+                            <li><a class="navlink" href="/projects">projects</a></li>
+                            <li><a class="navlink" href="/contact">contact</a></li>
+                        </ul></li>
+                    </ul>
+                </nav>
+                
+                 {% endblock %}
+            </header>
 
-            <div id="header">
-                {% block header %}
-                <a href="/">rlmv</a>
-                {% endblock %}
-            </div>
-
-            <div id="menu">
-                {% block menu %}
-                <ul id="nav">
-                    <li><a href="/blog">blog</a></li>
-                    <li><a href="/projects">projects</a></li>
-                    <li><a href="/contact">contact</a></li>
-                </ul>
-                {% endblock %}
-            </div>
-
-            <div id="content">
+        
+            <section id="content">
                 {% block content %}
                 {% endblock %}
-            </div>
+            </section>
 
-            <div id="footer">
-                {% block footer %}
+    
+            <footer id="pagefooter">
+                {% block pagefooter %}
                   <!--Robert Marchman-->
                 {% endblock %}
-            </div>
-
-        {% endblock %}
-        </div>
+            </footer>
 
     {% endblock %}
     </body>

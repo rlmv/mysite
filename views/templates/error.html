@@ -3,9 +3,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <h3> {{ status }} Error </h3>
-    <p> {{ message }} <p>
-    <p> {{ traceback }} </p>
-    
+    <section id="error" class="content">
+        <h2> {{ status }} Error </h2>
+        <div><h3> {{ message }} </h3></div>
+        <div>{{ traceback }}</div>
+        
+    </section>
 {% endblock %}

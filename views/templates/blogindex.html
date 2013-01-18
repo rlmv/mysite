@@ -2,14 +2,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <ul id="posts">
-    {% for title, html in posts %}
-        
-        <li><a href="/blog/{{ title }}">
-            <div class="blogtitle"> {{ title }} </div></a>
-            <div class="blogcontent">{{ html }}</div>      
+    <ul id="blogposts">
+    {% for title, blogtext in posts %}
+        <li>
+           <article class="blogarticle">
+                <header class="blogtitle">
+                    <a href="/blog/{{ title }}">{{ title }}</a>
+                </header>
+                <div class="blogcontent">{{ blogtext }}</div>
+            </article>   
         </li>
-        
     {% endfor %}
     </ul>
 {% endblock %}
