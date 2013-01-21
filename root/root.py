@@ -6,7 +6,7 @@ import cherrypy
 
 from blog import Blog
 from util import renderpage
-from db import db_build, db_delete
+from db import db_build, db_delete, loadprojects, deleteprojects
 
 
 def is_in_dev():
@@ -44,25 +44,14 @@ class Root(object):
         return renderpage('base.html')
 
 
-    @dev_expose
-    def db_build(self):
-        """ Builds datastore for testing . """
-        db_build()
-        return "BUILDING DB..."
-
-
-    @dev_expose
-    def db_delete(self):
-        """ Empties datastore. """
-        db_delete()
-        return "DELETING DB..."
-
 
     @dev_expose
     def db_rebuild(self):
         """ Tears down and rebuilds db. """
         db_delete()
         db_build()
+        deleteprojects()
+        loadprojects()
         return "REBUILDING DB..."
 
 

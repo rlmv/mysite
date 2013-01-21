@@ -1,14 +1,15 @@
 
 """ A set of functions for interacting with the 
-    appengin datastore. """
+    appengine datastore. """
 
 import os
+import json
 import logging
 
 import markdown2
 from google.appengine.ext import db
 
-from models import BlogPost
+from models import BlogPost, Project
 from util import get_files_of_type
 
 
@@ -37,7 +38,7 @@ def getrecentposts(num=5):
 
 
 def db_build():
-    """ Convert all markdown file in ./data/md into
+    """ Convert all markdown file in ./data/blog into
         html and put them in the datastore.
     """
     
@@ -45,7 +46,7 @@ def db_build():
     md = markdown2.Markdown(extras=['fenced-code-blocks', 'pyshell'])
 
     # grab all markdown files and convert them to html
-    for filename in get_files_of_type('md', './data/md'):
+    for filename in get_files_of_type('md', './data/blog'):
 
         with open(filename, 'r') as f:
             md_text = f.read()
@@ -55,16 +56,41 @@ def db_build():
             post = BlogPost(title=title, markdown=md_text, html=html)
             post.put()
 
-            logging.info("Putting {} into datastore ".format(title))
+            logging.info("Putting blogpost '{}' into datastore ".format(title))
 
-
+    
 def db_delete():
     """ Delete all blog posts in the datastore. Be careful! """
 
     q = BlogPost.all()
     db.delete(post.key() for post in q.run())
-    logging.info("Deleting datastore.")
+    logging.info("Deleting blogposts...")
 
+
+def loadprojects():
+    """ Yo this needs some work..."""
+    
+    project_dir = "./data/projects/"
+    
+    for filename in os.listdir(project_dir):
+        
+        with open(project_dir + filename, "rb") as f:
+            p = json.load(f)
+            logging.info(json.dumps(p, indent=4))
+            
+            name = p['name']
+            link = p['link']
+            description = p['description']
+            
+            project = Project(name=name, link=link, description=description)
+            project.put()
+            
+            logging.info("Putting project '{}' into the datastore".format(name))
+            
+def deleteprojects():
+    q = Project.all()
+    db.delete(project.key() for project in q.run())
+    logging.info("Deleting projects...")
 
 
 def tohtml(mddir, htmldir):

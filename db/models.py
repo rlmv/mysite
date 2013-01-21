@@ -14,3 +14,13 @@ class BlogPost(db.Model):
 
     post_date = db.DateTimeProperty(auto_now_add=True) #date added
     edit_date = db.DateTimeProperty(auto_now=True)  # date of last edit
+    
+    
+class Project(db.Model):
+    """ Model for a project object."""
+    
+    name = db.StringProperty()     # name of the project
+    link = db.StringProperty()     # link to the project - relative or absolute? hmmm..
+                            # maybe can use the db.Link property....
+                            
+    description = db.TextProperty()   # description, info, whatnot.
