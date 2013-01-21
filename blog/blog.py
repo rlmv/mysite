@@ -4,6 +4,7 @@ import logging
 
 import cherrypy
 
+import tools
 from db import getblogpost, getrecentposts
 
 
@@ -11,12 +12,14 @@ from db import getblogpost, getrecentposts
 class Blog(object):
 
     @cherrypy.expose
+    @tools.render
     def index(self):
         posts = getrecentposts()
         return 'blogindex.html', {'posts' : posts}
         
         
     @cherrypy.expose
+    @tools.render
     def default(self, *args):
         
         if len(args) == 1: # title?

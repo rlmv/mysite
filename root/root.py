@@ -4,6 +4,7 @@ import logging
 
 import cherrypy
 
+import tools
 from blog import Blog
 from projects import Projects
 
@@ -18,7 +19,7 @@ def is_in_dev():
 
 def dev_expose(func):
     """ Decorator for exposing resources in development mode only - when
-    being served by dev_appserver. 
+    beincg served by dev_appserver. 
 
     func - any callable
     """
@@ -36,12 +37,14 @@ class Root(object):
     
     
     @cherrypy.expose
+    @tools.render
     def contact(self):
         """ Contact page handler."""
-        return renderpage('contact.html')
+        return 'contact.html', {}
     
-    
+   
     @cherrypy.expose
+    @tools.render
     def index(self):
         return 'base.html', {}
 

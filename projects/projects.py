@@ -3,6 +3,7 @@ import logging
 
 import cherrypy
 
+import tools
 from db import getprojects
 
 class Projects:
@@ -11,7 +12,8 @@ class Projects:
         logging.info("Initilizing Project object.")
         
     @cherrypy.expose
+    @tools.render
     def index(self):
         projects = getprojects()
-        return "projects main"
+        return 'projectindex.html', {'projects' : projects}
         
