@@ -4,13 +4,14 @@
 
 import os
 import json
+import glob
 import logging
 
 import markdown2
 from google.appengine.ext import db
 
 from models import BlogPost, Project
-from util import get_files_of_type
+
 
 
 def addblogpost(filename, title):
@@ -97,6 +98,14 @@ def deleteprojects():
     q = Project.all()
     db.delete(project.key() for project in q.run())
     logging.info("Deleting projects...")
+
+
+
+def get_files_of_type(type, tdir):
+    """ Returns an iterator over all files of type [type] in the
+        directory [tdir]. """
+    return glob.iglob("{}/*.{}".format(tdir, type))
+
 
 
 def tohtml(mddir, htmldir):

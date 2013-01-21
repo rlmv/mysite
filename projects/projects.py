@@ -3,6 +3,8 @@ import logging
 
 import cherrypy
 
+from db import getprojects
+
 class Projects:
     
     def __init__(self):
@@ -10,5 +12,6 @@ class Projects:
         
     @cherrypy.expose
     def index(self):
+        projects = getprojects()
         return "projects main"
         
