@@ -35,7 +35,6 @@ a {
 }
 
 
-
 /*----------------------------*/
 
 body {
@@ -150,6 +149,12 @@ code {
 
 #error div {
   padding-top: 1em;
+}
+
+
+/*-----javascript-testing------*/
+.test {
+    color: red;
 }
 
 

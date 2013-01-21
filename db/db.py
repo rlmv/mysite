@@ -56,7 +56,7 @@ def db_build():
             post = BlogPost(title=title, markdown=md_text, html=html)
             post.put()
 
-            logging.info("Putting blogpost '{}' into datastore ".format(title))
+            logging.info("Putting blogpost '{}' into datastore...".format(title))
 
     
 def db_delete():
@@ -76,7 +76,6 @@ def loadprojects():
         
         with open(project_dir + filename, "rb") as f:
             p = json.load(f)
-            logging.info(json.dumps(p, indent=4))
             
             name = p['name']
             link = p['link']
@@ -85,7 +84,7 @@ def loadprojects():
             project = Project(name=name, link=link, description=description)
             project.put()
             
-            logging.info("Putting project '{}' into the datastore".format(name))
+            logging.info("Putting project '{}' into the datastore...".format(name))
             
 def deleteprojects():
     q = Project.all()
