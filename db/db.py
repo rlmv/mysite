@@ -27,15 +27,22 @@ def getblogpost(title):
     except AttributeError:
         return None
     
-def getrecentposts(num=5):
+def getrecentposts(limit=5):
     """ Get html for the [num] most recent posts.
         Return a list of (title, html) tuples. """
         
     q = BlogPost.all()
     q.order('post_date')
-    posts = [(post.title, post.html) for post in q.run(limit=num)]
+    posts = [(post.title, post.html) for post in q.run(limit=limit)]
     return posts
 
+
+def getprojects(limit=None):
+    """ Return a list of [limit] project objects. """ 
+    
+    q = Project.all()
+    return [project for project in q.run(limit=limit)]
+    
 
 def db_build():
     """ Convert all markdown file in ./data/blog into

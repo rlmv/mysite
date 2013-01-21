@@ -5,6 +5,7 @@ import logging
 import cherrypy
 
 from blog import Blog
+from projects import Projects
 from util import renderpage
 from db import db_build, db_delete, loadprojects, deleteprojects
 
@@ -28,9 +29,11 @@ def dev_expose(func):
 class Root(object):
 
     blog = Blog()
+    projects = Projects()
+    
 
     def __init__(self):
-        logging.info(">>>>> initializing Root object")
+        logging.info("Initializing Root object...")
     
     
     @cherrypy.expose
@@ -42,7 +45,6 @@ class Root(object):
     @cherrypy.expose
     def index(self):
         return renderpage('base.html')
-
 
 
     @dev_expose

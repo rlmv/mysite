@@ -7,6 +7,9 @@ $(document).ready(function() {
 
 // reveal the rest of the post, or link to it if already revealed.
 $(".blogtitle").click(function(event){
-    event.preventDefault();
-    $(this).siblings().children().show();
+    var content = $(this).siblings(".blogcontent").children()
+    if (content.is(":hidden")) {
+        event.preventDefault();
+        content.show();
+    }
 })
