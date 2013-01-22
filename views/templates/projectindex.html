@@ -4,10 +4,13 @@
 {% block head %}
     {{ super() }}   
     <script src="/js/lib/jquery.js" type="text/javascript"></script>
-    <script src="/js/projectindex.js" type="text/javascript"></script>
+    <script src="/js/lib/paper.js" type="text/javascript"></script>
+    <script src="/js/projectindex.js" type="text/paperscript" canvas="projectcanvas"></script>
+
 {% endblock %}
 {% block content %}
-    <canvas id="mycanvas"></canvas>
+    <div id="canvasdiv"><canvas id="projectcanvas" width=700 height=400></canvas></div>
+    
     <ul id="projects">
         {% for project in projects %}
             <li id="project{{ loop.index }}"> 
@@ -17,4 +20,5 @@
             </li>
         {% endfor %}
     </ul>
+
 {% endblock %}
