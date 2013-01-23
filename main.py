@@ -53,8 +53,7 @@ constants = {
 
 # set up tool to render all pages  - all inner handlers get
 # passed to tools.renderer, and should return a tuple:
-# (template_name, context). template_name is a template in
-# template_dir, and context is a set 
+# (template_name, context), or string containing html.
 renderer = RenderHandler(constants['template_dir'])
 cherrypy.tools.renderer = HandlerWrapperTool(renderer)
 
